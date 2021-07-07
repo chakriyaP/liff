@@ -63,7 +63,13 @@
 
       async function sendMsg() {}
 
-      function getContext() {}
+      function getContext() {
+        //  Context = บริบท ที่เราจะรู็ว่าน้องคุยกับใครอยู่
+        document.getElementById("type").append(liff.getContext().type);
+        document.getElementById("viewType").append(liff.getContext().viewType);
+        document.getElementById("utouId").append(liff.getContext().utouId);
+        document.getElementById("groupId").append(liff.getContext().groupId);
+      }
 
       async function getUserProfile() {
         // ที่เป็นการ async ิพราะน้องเป็น promist รอ
@@ -101,7 +107,7 @@
         await liff.init({ liffId: "1655985010-P3NMYorG" }); //เริ่มที่นี้ ต้องเอาid มาจาก line dev
         getEnvironment();
         getUserProfile();
-        // getContext()
+        getContext();
         // getFriendship()
         // createUniversalLink()
       }
