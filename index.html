@@ -65,7 +65,14 @@
 
       function getContext() {}
 
-      async function getUserProfile() {}
+      async function getUserProfile() {
+        // ที่เป็นการ async ิพราะน้องเป็น promist รอ
+        const profile = await liff.getProfile();
+        document.getElementById("pictureUrl").src = profile.pictureUrl;
+        document.getElementById("userId").append(profile.userId);
+        document.getElementById("statusMessage").append(profile.statusMessage);
+        document.getElementById("displayName").append(profile.displayName);
+      }
 
       function getEnvironment() {
         // ดึงค่าต่างๆ ที่ line ให้มาโชว์
@@ -73,10 +80,10 @@
         document.getElementById("language").append(liff.getLanguage());
         document.getElementById("version").append(liff.getVersion());
         document.getElementById("accessToken").append(liff.getAccessToken());
-        document.getElementById("isInClient").append(liff.isInClient());
+        document.getElementById("isInClient").append(liff.isInClient()); // จะมีในcase ที่เข้าผ่าน apprication line ถ้าเอาที่ web extanal ก็จะไม่่มีมา
 
         if (liff.isInClient()) {
-          // กรณีเปิดในโทรสับที่ทำการ login line อยู่แล้วไม่จำเป็นต้องมี logout
+          // กรณีเปิดใน line application ที่ทำการ login line อยู่แล้วไม่จำเป็นต้องมี logout
           document.getElementById("btnLogOut").style.display = "none";
         } else {
           document.getElementById("btnMsg").style.display = "none";
@@ -88,7 +95,7 @@
       async function main() {
         await liff.init({ liffId: "1655985010-P3NMYorG" }); //เริ่มที่นี้ ต้องเอาid มาจาก line dev
         getEnvironment();
-        // getUserProfile()
+        getUserProfile();
         // getContext()
         // getFriendship()
         // createUniversalLink()
