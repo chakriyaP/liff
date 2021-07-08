@@ -49,11 +49,16 @@
     <script>
       function createUniversalLink() {}
 
-      async function shareMsg() {}
+      async function shareMsg() {
+        // ส่งข้อความไปหาที่อื่น
+        await liff.shareTargetPicker([
+          { type: "text", text: "สวัสดีจ้าาาาา " },
+        ]);
+      }
 
       function logOut() {
         liff.logout();
-        window.location.reload();
+        window.location.reload(); //เพื่อให้เห็นมา logout จริงๆ
       }
 
       function closed() {
@@ -156,7 +161,6 @@
           getEnvironment();
           getUserProfile();
           getContext();
-
           getFriendship();
         } else {
           // ถ้าเอาที่อื่น
