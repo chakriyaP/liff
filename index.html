@@ -61,7 +61,21 @@
 
       async function getFriendship() {}
 
-      async function sendMsg() {}
+      async function sendMsg() {
+        // ไปขอก่อน chat_message.write ที่ line dev
+        if (liff.getContext().type !== "none") {
+          //เราจะส่งกลับไปได้ในกรณีที่ค่าห้องปชทไม่เป็น none
+          await liff.sendMessages([
+            {
+              type: "sticker",
+              stickerId: 1,
+              packageId: 1,
+            },
+          ]);
+
+          alert("Meaaage sent");
+        }
+      }
 
       function getContext() {
         //  Context = บริบท ที่เราจะรู็ว่าน้องคุยกับใครอยู่
@@ -109,6 +123,7 @@
         getEnvironment();
         getUserProfile();
         getContext();
+
         // getFriendship()
         // createUniversalLink()
       }
