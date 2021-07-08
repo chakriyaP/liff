@@ -65,11 +65,12 @@
         // ไปขอก่อน chat_message.write ที่ line dev
         if (liff.getContext().type !== "none") {
           //เราจะส่งกลับไปได้ในกรณีที่ค่าห้องปชทไม่เป็น none
+          // เราเป็นคนส่งกลับนะ ไม่ใช้ bot ส่งมา
           await liff.sendMessages([
             {
               type: "sticker",
-              stickerId: 1,
-              packageId: 1,
+              stickerId: 1988,
+              packageId: 446,
             },
           ]);
 
