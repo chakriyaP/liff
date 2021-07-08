@@ -11,7 +11,7 @@
   </head>
   <body>
     <p id="os"><b>OS:</b></p>
-    <p id="language"><b>Languagejkjjjjh:</b></p>
+    <p id="language"><b>Language:</b></p>
     <p id="version"><b>Version:</b></p>
     <p id="isInClient"><b>isInClient:</b></p>
     <p id="accessToken"><b>AccessToken:</b></p>
@@ -59,7 +59,17 @@
 
       function openWindow() {}
 
-      async function getFriendship() {}
+      async function getFriendship() {
+        // ตรวจสอบว่าผู้ใช้  add chatbot เราหรีือยัง
+        const friend = await liff.getFriendship();
+        document.getElementById("friendship").append(friend.friendFlag);
+        if (!friend.friendFlag) {
+          if (confirm("ไป add bot เราก่อนนะคะ")) {
+            window.location =
+              "https://page.line.me/?openerPlatform=native&openerKey=qrcode&accountId=475omjdr&fbclid=IwAR388_n672p9z4N4PVNjML8s5dnloh-EugvQQMgaZyJblHeiR9nkKW135no#mst_challenge=kfZO_AWc3YZex7BrPENcD-xXyi1bCRT9E24UnRcbyOk";
+          }
+        }
+      }
 
       async function sendMsg() {
         // ไปขอก่อน chat_message.write ที่ line dev
@@ -128,7 +138,7 @@
         getUserProfile();
         getContext();
 
-        // getFriendship()
+        getFriendship();
         // createUniversalLink()
       }
       main();
