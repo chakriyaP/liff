@@ -147,11 +147,16 @@
 
       async function main() {
         await liff.init({ liffId: "1655985010-P3NMYorG" }); //เริ่มที่นี้ ต้องเอาid มาจาก line dev
-        getEnvironment();
-        getUserProfile();
-        getContext();
+        // ต้องทำการ login ก่อนถึงจะมีเมนูให้เลือก
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+        if (liff.isLoggedIn()) {
+          getEnvironment();
+          getUserProfile();
+          getContext();
 
-        getFriendship();
+          getFriendship();
+        }
+
         // createUniversalLink()
       }
       main();
