@@ -164,20 +164,21 @@
       }
 
       async function main() {
+        liff.ready.then(() => {
+          document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+          if (liff.isLoggedIn()) {
+            getEnvironment();
+            getUserProfile();
+            getContext();
+            getFriendship();
+            createUniversalLink();
+          } else {
+            // ถ้าเอาที่อื่น
+            liff.login();
+          }
+        });
         await liff.init({ liffId: "1655985010-P3NMYorG" }); //เริ่มที่นี้ ต้องเอาid มาจาก line dev
         // ต้องทำการ login ก่อนถึงจะมีเมนูให้เลือก
-        document.getElementById("isLoggedIn").append(liff.isLoggedIn());
-        if (liff.isLoggedIn()) {
-          getEnvironment();
-          getUserProfile();
-          getContext();
-          getFriendship();
-        } else {
-          // ถ้าเอาที่อื่น
-          // liff.login();
-        }
-
-        createUniversalLink();
       }
       main();
     </script>
