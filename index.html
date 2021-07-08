@@ -55,7 +55,11 @@
 
       function closed() {}
 
-      async function scanCode() {}
+      async function scanCode() {
+        // ต้องการอ่านค่า QR มาที่ p
+        const result = await liff.scanCode();
+        document.getElementById("scanCode").append(result.value);
+      }
 
       function openWindow() {
         // เปิดเบาร์เซอร์
