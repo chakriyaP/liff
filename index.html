@@ -57,7 +57,13 @@
 
       async function scanCode() {}
 
-      function openWindow() {}
+      function openWindow() {
+        // เปิดเบาร์เซอร์
+        liff.openWindow({
+          url: "https://line.me",
+          external: true,
+        });
+      }
 
       async function getFriendship() {
         // ตรวจสอบว่าผู้ใช้  add chatbot เราหรีือยัง
