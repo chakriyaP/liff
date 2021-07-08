@@ -51,7 +51,10 @@
 
       async function shareMsg() {}
 
-      function logOut() {}
+      function logOut() {
+        liff.logout();
+        window.location.reload();
+      }
 
       function closed() {
         // การปิด liff แบบไม่ต้องให้ User ปิดเอง ให้web ปิดเองจ้า ช่วยความปลอดภัย access token
