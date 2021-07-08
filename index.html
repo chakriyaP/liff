@@ -53,7 +53,10 @@
 
       function logOut() {}
 
-      function closed() {}
+      function closed() {
+        // การปิด liff แบบไม่ต้องให้ User ปิดเอง ให้web ปิดเองจ้า ช่วยความปลอดภัย access token
+        liff.closedWindow();
+      }
 
       async function scanCode() {
         // ต้องการอ่านค่า QR มาที่ p
