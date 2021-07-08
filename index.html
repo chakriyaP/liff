@@ -69,13 +69,11 @@
         ) {
           //เราจะส่งกลับไปได้ในกรณีที่ค่าห้องปชทไม่เป็น none
           // เราเป็นคนส่งกลับนะ ไม่ใช้ bot ส่งมา
-          await liff.sendMessages([
-            {
-              type: "sticker",
-              packageId: 446,
-              stickerId: 1988,
-            },
-          ]);
+          await liff.sendMessages({
+            type: "sticker",
+            stickerId: 1,
+            packageId: 1,
+          });
 
           alert("Meaaage sentkkkk");
         }
