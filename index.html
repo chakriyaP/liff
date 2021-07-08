@@ -62,14 +62,6 @@
       async function getFriendship() {}
 
       async function sendMsg() {
-        await liff.sendMessages([
-          {
-            type: "sticker",
-            stickerId: "1988",
-            packageId: "446",
-          },
-        ]);
-
         // ไปขอก่อน chat_message.write ที่ line dev
         if (liff.getContext().type !== "none") {
           //เราจะส่งกลับไปได้ในกรณีที่ค่าห้องปชทไม่เป็น none
@@ -77,8 +69,8 @@
           await liff.sendMessages([
             {
               type: "sticker",
-              stickerId: "1988",
-              packageId: "446",
+              stickerId: 1988,
+              packageId: 446,
             },
           ]);
 
